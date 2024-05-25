@@ -314,24 +314,61 @@
 							- We want the payload in HAL's heap
 							- HAL "Hardware Abstraction Layer" Boots stuff and could be found in the same spot (till windows 10'ish)
 							- DoublePulsar was part of the NSA leak, and gives a reverse shell..
-
-
 					</textarea>
 				</aside>	
 			</section>
-
+<section>
 			<section>
 				<h2>Demo Time</h2>
+
 			</section>
 			<section>
-				<h2>How to fix it</h2>
-				<p>MS2017-010: The most important patch - ever!</p>
-				<p>Fix the Typecast from short to int</p>
-				<p>Windows implemented ASLR (Randomized memory allocation) from HAL on Windows 10</p>
-				<h2>Detection</h2>
-				<p>During exploitation EternalBlue is hard to detect, DoublePulsar works in memory only (no files)</p>
-				<p>The unusual traffic on SMB with packets giving errors and SMB PID's used were identified and set up for detection by IDS</p>
+				Setup
+				<img data-src="assets/DemoSetup.png" width="100%" />
 			</section>
+			<section>
+				Enumeration
+				<img data-src="assets/NmapEternalBlueVulnChekc.png" width="100%" />
+			</section>
+			<section>
+				Metasploit EternalBlue "Menu"
+				<div style="display: flex; align-items: center; justify-content: space-between;">
+					<img data-src="assets/MetaSploitEternalBlueMenu.png" height="600px" />
+					<img data-src="assets/MetasploitAllSetupNeeded.png" height="60%" />
+				</div>
+			</section>
+			<section>
+				Windows7 pwned..
+				<div style="display: flex; align-items: center; flex-wrap: wrap;">
+					<img data-src="assets/EternalBlueWin.png" height="300px" />
+					<img data-src="assets/getSystem.png" height="180px" />
+					<img data-src="assets/HashDump.png" height="70px" />
+				</div>
+			</section>
+			<section>
+				Mimikatz
+				<div style="display: flex; align-items: center; flex-wrap: wrap;">
+					<img data-src="assets/MeterpreterMimiKatz.png" width="100%" />
+					<img data-src="assets/PasswordsStolen.png" height="100%" />
+					<img data-src="assets/HashDump.png" height="70px" />
+				</div>
+			</section>
+			<section>
+				Wireshark Dump
+					<img data-src="assets/SMB_TransError.png" height="100%" />
+			</section>
+		</section>
+			<section>
+				<h2>How to fix it</h2>
+				<ul>
+				<li>MS2017-010: The most important patch - ever!</li>
+				<li>Fix the Typecast from short to int</li>
+				<li>Windows implemented ASLR (Randomized memory allocation) of HAL on Windows 10</li>
+				<li>During exploitation EternalBlue is hard to detect, DoublePulsar works in memory only (no files)</li>
+				<li>The unusual traffic on SMB with packets giving errors and SMB PID's used were identified and set up for detection by IDS</li>
+				</ul>
+			</section>
+
 		</div>
 	</div>
 
