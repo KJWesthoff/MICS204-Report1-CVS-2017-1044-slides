@@ -136,6 +136,18 @@ html {
     border-right: black solid 1px;
 }
 
+.T2-overflow-error {
+    width: 30px;
+    height: 100%;
+    background-color: #C4820E;
+    border-right: black solid 1px;
+    color: black;
+    font-size: small;
+    font-family:'Courier New', Courier, monospace;
+
+}
+
+
 .DB-overflow {
     width: 90px;
     height: 100%;
