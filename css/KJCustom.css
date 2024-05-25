@@ -1,0 +1,159 @@
+.banner-array {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+}
+
+.card {
+    padding: 1rem
+}
+
+.logo-container {
+    max-height: 300px;
+    width: 300px;
+    position: relative;
+
+}
+
+.logo {
+    object-fit: contain;
+    position: relative;
+    margin: 0;
+}
+
+.fragment.blur {
+    filter: blur(5px);
+}
+
+.fragment.blur.visible {
+    filter: none;
+}
+
+
+.stamp-text {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 0;
+    transform: rotate(12deg);
+    color: red;
+    font-size: 3rem;
+    font-weight: 700;
+    border: 0.5rem solid red;
+    display: inline-block;
+    padding: 0.2rem .25rem;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    font-family: 'Courier';
+    -webkit-mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png');
+    -webkit-mask-size: 944px 604px;
+    mix-blend-mode: hard-light;
+}
+
+.card-title {
+    margin-top: 1rem;
+}
+
+.ClientServerTransaction {
+    min-width: 400px;
+    vertical-align:bottom;
+    border-left: 10px solid #3B7EA1;
+    border-right: 10px solid #C4820E;
+    padding-bottom: 2rem;
+    padding-left: 0.2rem;
+    padding-right: 0.5rem;
+
+}
+
+
+html {
+    --w: 100%;
+    --h: 100px;
+    --rotation: 2deg;
+    --nrotation: -2deg;
+}
+
+
+.transaction {
+    height: 1.5rem;
+    text-align: center;
+    vertical-align: baseline;
+    width: 100%;
+}
+
+.transaction.client {
+    border-bottom: 2px solid #3B7EA1;
+    font-size:medium;
+    font-family: 'Courier';
+    transform: rotate(var(--rotation));
+} 
+.transaction.server {
+    border-bottom: 2px solid #C4820E;
+    font-size:medium;
+    font-family: 'Courier';
+    transform: rotate(var(--nrotation));  
+}
+
+.client-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc((var(--w) * cos(var(--rotation))) + var(--h) * sin(var(--rotation)));
+    height: calc((var(--h) * cos(var(--rotation))) + var(--w) * sin(var(--rotation)));
+    margin: 3px;
+}
+.server-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc((var(--w) * cos(var(--nrotation))) + var(--h) * sin(var(--nrotation)));
+    height: calc((var(--h) * cos(var(--nrotation))) + var(--w) * sin(var(--nrotation)));
+    margin: 3px;
+}
+
+
+.heap-slide {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.heapbox {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    border: 2px white solid; 
+
+}
+
+.T2-overflow {
+    width: 30px;
+    height: 100%;
+    background-color: #46535E;
+    border-right: black solid 1px;
+}
+
+.DB-overflow {
+    width: 90px;
+    height: 100%;
+    background-color: #DDD5C7;
+    border-right: black solid 1px;
+    color: black;
+    font-size: small;
+    font-family:'Courier New', Courier, monospace;
+
+    
+}
+.DB-pulsar-overflow {
+    width: 90px;
+    height: 100%;
+    background-color: #FDB515;
+    border-right: black solid 1px;
+    color: black;
+    font-size: small;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}

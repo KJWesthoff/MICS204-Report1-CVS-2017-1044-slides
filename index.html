@@ -1,40 +1,336 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/KJblack.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<link rel="stylesheet" href="css/KJCustom.css">
+
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background-image="/assets/UCB-001-TriangleChain-Outline.svg">
+				EternalBlue
+				<h1>CVS-2017-0144</h1>
+				<img class="logo" data-src="/assets/Berkeley-wordmark-white-UC.png"
+					style="border-radius: 1rem; height: 150px;" />
+				<div>MICS-204 Summer 2024</div>
+				<p>Karl-Johan Westhoff</p>
+			</section>
+
+			<section>
+				<h2>Vulnerability behind the worlds biggest Cyber Attacks</h2>
+
+				<div class="banner-array">
+					<div class="card">
+						<div class="logo-container">
+							<img class="logo" data-src="/assets/NSAlogo.svg" />
+							<div class="stamp-text fragment" data-fragment-index="1">
+								HACKED LEAKED Apr.2017</div>
+						</div>
+						<div class="card-title" style="font-family: 'Optima'" ;>
+							NSA
+						</div>
+					</div>
+
+					<div class="card  fragment" data-fragment-index="1">
+						<figure class="logo-container">
+							<img class="logo" data-src="/assets/shadowbrokers.jpg" style="border-radius: 1rem;" />
+
+						</figure>
+						<figcaption
+							style="font-size: x-small; text-align: left; margin-top: 0.3rem; position: absolute;">[*]
+							DarkNetDiaries ep. 53</figcaption>
+						<div class="card-title" style="font-family: 'Courier'" ;>
+							ShadowBrokers
+							<!-- https://darknetdiaries.com/episode/53/	 -->
+						</div>
+					</div>
+
+					<div class="card fragment" data-fragment-index="2">
+						<div class="logo-container">
+							<img class="logo" data-src="/assets/system-hacked.jpg" />
+
+						</div>
+						<div class="card-title" style="font-family: 'Courier'">
+							WannaCry NotPetya etc...
+							<!-- https://darknetdiaries.com/episode/53/	 -->
+						</div>
+					</div>
+
+				</div>
+				<div class="banner-array fragment " data-fragment-index="3">
+					<p><img data-src="assets/MicrosoftLogo.svg" style="width:1em; height:1em; vertical-align: middle" />
+						Microsoft actually issued MS17-010 in Mar 2017..
+					</p>
+
+
+				</div>
+			</section>
+
+			<section>
+				<h3>Cost $2-10 billion, Who knows?</h3>
+				<div style="display:flex; flex-wrap: wrap; justify-content: flex-start; align-content: flex-start;">
+					<img data-src="/assets/Maersk_Group_Logo.svg" width="200" />
+					<img data-src="/assets/NHSlogo.svg" width="200" />
+					<img data-src="/assets/TelefonicaLogo.svg" width="200" />
+					<img data-src="/assets/FedExLogo.svg" width="200" />
+					<img data-src="/assets/MerckLogo.svg" width="200" />
+					<img data-src="/assets/StGobainLogo.svg" width="200" />
+					<img data-src="/assets/WPPLogo.svg" width="200" />
+				</div>
+
+			</section>
+
+			<section>
+				<h2>Exploit - How it works</h2>
+				<ul>
+					<li>Windows Server Message Block (SMB) Protocol</li>
+					<li class="fragment fade-in-then-out">Inconspicuously runs on TCP port 445</li>
+					<li class="fragment fade-in">Three bugs/Features:</li>
+					<ul>
+						<li class="fragment fade-in">Buffer Overflow</li>
+						<li class="fragment fade-in">Unverified Packages</li>
+						<li class="fragment fade-in">Heap Spraying</li>
+					</ul>
+				</ul>
+
+				<aside class="notes" data-markdown>
+					<textarea data-template>
+						- If you want shared folders, TCP 445 must be open on the firewall
+						- SMB is also used by psexec (It admin hacker tool)
+
+
+					</textarea>
+				</aside>
+			</section>
+
+			<section>
+				<h3>Buffer Overflow</h3>
+				<p class="fragment fade-out" data-fragment-index="1">SMB Works really close to the OS, and has many
+					'special/convenient' features like dir search etc..</p>
+				<p class="fragment fade-in" data-fragment-index="1">SMB contains list of "File Extended Attributes"
+					called <span class="fragment highlight-red grow" data-fragment-index="4">"FEAList"</span></p>
+				<ul>
+					<li class="fragment fade-in" data-fragment-index="2">Two transaction types <span
+							class="fragment highlight-red grow" data-fragment-index="4">"OS/2 and NT"</span></li>
+					<li class="fragment fade-in" data-fragment-index="3">"OS/2" format is translated to "NT"</li>
+					<li class="fragment fade-in" data-fragment-index="4">And thats where the first bug is..</li>
+				</ul>
+			</section>
+
+			<section>
+				<p>Typecast Bug in srv.sys -> Buffer Overflow</p>
+				<p>Ghidra <img data-src="/assets/GhidraLogo.svg"
+						style="width:1em; height:1em; vertical-align: middle" /> decompile, search for SrvOs2FeaListToNt
+				</p>
+				<pre>
+					<code data-trim data-noescape data-line-numbers="1|34,35,37,39,49|54">
+
+						undefined4 FUN_0002f565(int *param_1,uint **param_2,uint *param_3,short *param_4)
+
+						{
+						int iVar1;
+						int *piVar2;
+						uint *puVar3;
+						uint *puVar4;
+						int *piVar5;
+						byte bVar6;
+						uint uVar7;
+						undefined4 uVar8;
+						uint *puVar9;
+						int *local_8;
+						
+						local_8 = (int *)0x0;
+						uVar7 = FUN_0002f4a8(param_1);
+						*param_3 = uVar7;
+						if (uVar7 == 0) {
+							*param_4 = 0;
+							uVar8 = 0xc098f0ff;
+						}
+						else {
+							puVar9 = FUN_00011aee(uVar7,0x15);
+							*param_2 = puVar9;
+							if (puVar9 == (uint *)0x0) {
+							if (((1 < (byte)PTR_LOOP_00020000[0x1d]) && ((PTR_LOOP_00020000[0x20] & 1) != 0)) &&
+								(bVar6 = KeGetCurrentIrql(), bVar6 < 2)) {
+								DbgPrint("SrvOs2FeaListToNt: Unable to allocate %d bytes from nonpaged pool.",*param_3,0);
+								DbgPrint(&DAT_000228b2);
+							}
+							uVar8 = 0xc0000205;
+							}
+							else {
+							iVar1 = *param_1;
+							piVar5 = param_1 + 1;
+							puVar4 = puVar9;
+							while (puVar3 = puVar9, piVar2 = piVar5, piVar2 <= (int *)(iVar1 + -5 + (int)param_1)) {
+								if ((*(byte *)piVar2 & 0x7f) != 0) {
+								*param_4 = (short)piVar2 - (short)param_1;
+								uVar8 = 0xc000000d;
+								goto LAB_0002f63f;
+								}
+								puVar9 = (uint *)FUN_0002f22b((int *)puVar3,(undefined *)piVar2);
+								puVar4 = puVar3;
+								local_8 = piVar2;
+								piVar5 = (int *)((int)piVar2 +
+												(uint)*(ushort *)((int)piVar2 + 2) + *(byte *)((int)piVar2 + 1) + 5);
+							}
+							if (piVar2 == (int *)(*param_1 + (int)param_1)) {
+								*puVar4 = 0;
+								uVar8 = 0;
+							}
+							else {
+								*param_4 = (short)local_8 - (short)param_1;
+								uVar8 = 0xc0000001;
+						LAB_0002f63f:
+								FUN_00011a98((int)*param_2);
+							}
+							}
+						}
+						return uVar8;
+						}
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h3 style="text-align: start;">Unchecked Packages</h3>
+				<div class="heap-slide">
+					
+					
+					
+					<span class="fragment" data-fragment-index="1" style="font-size: medium; align-self: start;">Client</span>
+					<div>
+						
+						<div class="fragment ClientServerTransaction" data-fragment-index="1">
+
+							<div class="fragment client-wrapper" data-fragment-index="1">
+								<div class="transaction client">Setup AndX Request $IPC</div>
+							</div>
+
+							<div class="fragment server-wrapper" data-fragment-index="2">
+								<div class="transaction server">Setup AndX Response</div>
+							</div>
+
+							<div class="fragment" data-fragment-index="3">
+								<div class="transaction client fragment highlight-current-green"
+									data-fragment-index="3">NT request [Offset, Count/Total/Max]</div>
+							</div>
+
+							<div class="fragment server-wrapper" data-fragment-index="4">
+								<div class="transaction server">NT Response FID 0000</div>
+							</div>
+							<div class="fragment client-wrapper" data-fragment-index="5">
+								<div class="transaction client  fragment highlight-current-red" data-fragment-index="5">
+									Trans2 Secondary FID 0000</div>
+							</div>
+							<div class="fragment client-wrapper" data-fragment-index="6">
+								<div class="transaction client">Trans2 Secondary FID 0000</div>
+							</div>
+							<div class="fragment client-wrapper" data-fragment-index="7">
+								<div class="transaction client">Trans2 Secondary FID 0000</div>
+							</div>
+							<div class="fragment client-wrapper" data-fragment-index="8">
+								<div class="transaction client">Trans2 Secondary FID 0000</div>
+							</div>
+							<div class="fragment client-wrapper" data-fragment-index="9">
+								<div class="transaction client">Trans2 Secondary FID 0000</div>
+							</div>
+
+							<div class="fragment client-wrapper" data-fragment-index="10">
+								<div class=" transaction client fragment highlight-current-red"
+									data-fragment-index="10">New Setup AndX Connection</div>
+							</div>
+
+							<div class="fragment server-wrapper" data-fragment-index="11">
+								<div class="transaction server">Setup AndX Response</div>
+							</div>
+
+							<div class="fragment server-wrapper" data-fragment-index="12">
+								<div class="transaction server">Ok FID 0001</div>
+							</div>
+
+							<div class="fragment client-wrapper" data-fragment-index="13">
+								<div class="transaction client">Trans2 Finish ..</div>
+							</div>
+							<div class="fragment server-wrapper" data-fragment-index="14">
+								<div class="transaction server">Trans2 wait a minute..error..</div>
+							</div>
+
+						</div>
+						
+
+					</div>
+					<span class="fragment" data-fragment-index="1"  style="font-size: medium; align-self: start;">Server</span>
+
+
+					<div class="fragment" data-fragment-index="5">
+						<h3>Heap Spraying</h3>
+						<div class="heapbox">
+							<div class="T2-overflow fragment" data-fragment-index="5"></div>
+							<div class="T2-overflow fragment" data-fragment-index="6"></div>		
+							<div class="T2-overflow fragment" data-fragment-index="7"></div>	
+							<div class="T2-overflow fragment"data-fragment-index="8"></div>	
+							<div class="T2-overflow fragment"data-fragment-index="9"></div>	
+							<div class="DB-overflow fragment"data-fragment-index="11">Overflow</div>
+							<div class="DB-overflow fragment"data-fragment-index="11">Overflow</div>		
+						</div>
+						<p>We want to hit HAL's address heap with the "DoublePulsar" payload</p>
+					</div>
+
+				</div>
+
+				<aside class="notes" data-markdown>
+					<textarea data-template>
+						- IPC$ inter-process communication share a.k.a. null session allows, anonymous access, used for remote admin
+						- The client(attacker) sends offsets for memory requirements
+						- SMB will check if the offsets fit, and calculate the correct offset based on filetype (OS/2 or NT) here the bug in conversion comes in..
+						- The 16bit int FEA list is only allowed with NT type, but SMB does not check if the subsequent packages are NT type
+							- Therefore the first packet is NT and the subsequent are OS/2
+						- The last package determines the type, and allocates the memory
+						- Another transaction is allowed to be started before the previous ends
+						- The first is terminated after second is started
+							- An error is sent and the memory is freed, placing the payload where we want	 
+							- We want the payload in HAL's heap
+							- DoublePulsar was part of the NSA leak, and gives a reverse shell..
+
+
+					</textarea>
+				</aside>	
+			</section>
+
+			<section>
+				<h2>Demo Time</h2>
+			</section>
+
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
 </html>
