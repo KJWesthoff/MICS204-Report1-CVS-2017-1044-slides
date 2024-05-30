@@ -50,8 +50,10 @@
 
 						</figure>
 						<figcaption
-							style="font-size: x-small; text-align: left; margin-top: 0.3rem; position: absolute;">[*]
-							DarkNetDiaries ep. 53</figcaption>
+							style="font-size: x-small; color: white; text-align: left; margin-top: 0.3rem; position: absolute;">
+							<a href="https://darknetdiaries.com/episode/53/" target="_blank">[*]DarkNetDiaries ep.
+								53</a>
+						</figcaption>
 						<div class="card-title" style="font-family: 'Courier'" ;>
 							ShadowBrokers
 							<!-- https://darknetdiaries.com/episode/53/	 -->
@@ -71,7 +73,8 @@
 
 				</div>
 				<div class="banner-array fragment " data-fragment-index="3">
-					<p><img data-src="assets/MicrosoftLogo.svg" style="width:1em; height:1em; vertical-align: middle" />
+					<p style="margin:0"><img data-src="assets/MicrosoftLogo.svg"
+							style="width:1em; height:1em; vertical-align: middle" />
 						Microsoft actually issued MS17-010 in Mar 2017..
 					</p>
 
@@ -218,12 +221,13 @@
 			<section>
 				<h3 style="text-align: start;">Unchecked Packages</h3>
 				<div class="heap-slide">
-					
-					
-					
-					<span class="fragment" data-fragment-index="1" style="font-size: medium; align-self: start;">Client</span>
+
+
+
+					<span class="fragment" data-fragment-index="1"
+						style="font-size: medium; align-self: start;">Client</span>
 					<div>
-						
+
 						<div class="fragment ClientServerTransaction" data-fragment-index="1">
 
 							<div class="fragment client-wrapper" data-fragment-index="1">
@@ -275,25 +279,26 @@
 							</div>
 
 						</div>
-						
+
 
 					</div>
-					<span class="fragment" data-fragment-index="1"  style="font-size: medium; align-self: start;">Server</span>
+					<span class="fragment" data-fragment-index="1"
+						style="font-size: medium; align-self: start;">Server</span>
 
 
 					<div class="fragment" data-fragment-index="5">
 						<h3>Heap Spraying</h3>
 						<div class="heapbox">
 							<div class="T2-overflow fragment" data-fragment-index="5"></div>
-							<div class="T2-overflow fragment" data-fragment-index="6"></div>		
-							<div class="T2-overflow fragment" data-fragment-index="7"></div>	
-							<div class="T2-overflow fragment" data-fragment-index="8"></div>	
-							<div class="T2-overflow fragment" data-fragment-index="9"></div>	
+							<div class="T2-overflow fragment" data-fragment-index="6"></div>
+							<div class="T2-overflow fragment" data-fragment-index="7"></div>
+							<div class="T2-overflow fragment" data-fragment-index="8"></div>
+							<div class="T2-overflow fragment" data-fragment-index="9"></div>
 							<div class="DB-overflow	 fragment" data-fragment-index="14">Overflow</div>
 							<div class="T2-overflow-error fragment" data-fragment-index="13">Err.</div>
-							<div class="DB-pulsar-overflow	 fragment" data-fragment-index="15">DoublePulsar</div>	
-							
-						
+							<div class="DB-pulsar-overflow	 fragment" data-fragment-index="15">DoublePulsar</div>
+
+
 						</div>
 						<p>We want to hit HAL's address heap with the "DoublePulsar" payload</p>
 					</div>
@@ -315,58 +320,79 @@
 							- HAL "Hardware Abstraction Layer" Boots stuff and could be found in the same spot (till windows 10'ish)
 							- DoublePulsar was part of the NSA leak, and gives a reverse shell..
 					</textarea>
-				</aside>	
+				</aside>
 			</section>
-<section>
 			<section>
-				<h2>Demo Time</h2>
+				<section>
+					<h2>Demo Time</h2>
 
-			</section>
-			<section>
-				Setup
-				<img data-src="assets/DemoSetup.png" width="100%" />
-			</section>
-			<section>
-				Enumeration
-				<img data-src="assets/NmapEternalBlueVulnChekc.png" width="100%" />
-			</section>
-			<section>
-				Metasploit EternalBlue "Menu"
-				<div style="display: flex; align-items: center; justify-content: space-between;">
-					<img data-src="assets/MetaSploitEternalBlueMenu.png" height="600px" />
-					<img data-src="assets/MetasploitAllSetupNeeded.png" height="60%" />
-				</div>
-			</section>
-			<section>
-				Windows7 pwned..
-				<div style="display: flex; align-items: center; flex-wrap: wrap;">
-					<img data-src="assets/EternalBlueWin.png" height="300px" />
-					<img data-src="assets/getSystem.png" height="180px" />
-					<img data-src="assets/HashDump.png" height="70px" />
-				</div>
-			</section>
-			<section>
-				Mimikatz
-				<div style="display: flex; align-items: center; flex-wrap: wrap;">
-					<img data-src="assets/MeterpreterMimiKatz.png" width="100%" />
-					<img data-src="assets/PasswordsStolen.png" height="100%" />
-					<img data-src="assets/HashDump.png" height="70px" />
-				</div>
-			</section>
-			<section>
-				Wireshark Dump
+				</section>
+				<section>
+					Setup
+					<img data-src="assets/DemoSetup.png" width="100%" />
+				</section>
+				<section>
+					Enumeration
+					<img data-src="assets/NmapEternalBlueVulnChekc.png" width="100%" />
+				</section>
+				<section>
+					Metasploit EternalBlue "Menu"
+					<div style="display: flex; align-items: center; justify-content: space-between;">
+						<img data-src="assets/MetaSploitEternalBlueMenu.png" height="600px" />
+						<img data-src="assets/MetasploitAllSetupNeeded.png" height="60%" />
+					</div>
+				</section>
+				<section>
+					Windows7 pwned..
+					<div style="display: flex; align-items: center; flex-wrap: wrap;">
+						<img data-src="assets/EternalBlueWin.png" height="300px" />
+						<img data-src="assets/getSystem.png" height="180px" />
+						<img data-src="assets/HashDump.png" height="70px" />
+					</div>
+				</section>
+				<section>
+					Mimikatz
+					<div style="display: flex; align-items: center; flex-wrap: wrap;">
+						<img data-src="assets/MeterpreterMimiKatz.png" width="100%" />
+						<img data-src="assets/PasswordsStolen.png" height="100%" />
+						<img data-src="assets/HashDump.png" height="70px" />
+					</div>
+				</section>
+				<section>
+					Wireshark Dump
 					<img data-src="assets/SMB_TransError.png" height="100%" />
+				</section>
 			</section>
-		</section>
 			<section>
 				<h2>How to fix it</h2>
 				<ul>
-				<li>MS2017-010: The most important patch - ever!</li>
-				<li>Fix the Typecast from short to int</li>
-				<li>Windows implemented ASLR (Randomized memory allocation) of HAL on Windows 10</li>
-				<li>During exploitation EternalBlue is hard to detect, DoublePulsar works in memory only (no files)</li>
-				<li>The unusual traffic on SMB with packets giving errors and SMB PID's used were identified and set up for detection by IDS</li>
+					<li>MS2017-010: The most important patch - ever!</li>
+					<li>Fix the Typecast from short to int</li>
+					<li>Windows implemented ASLR (Randomized memory allocation) of HAL on Windows 10</li>
+					<li>During exploitation EternalBlue is hard to detect, DoublePulsar works in memory only (no files)
+					</li>
+					<li>The unusual traffic on SMB with packets giving errors and SMB PID's used were identified and set
+						up for detection by IDS</li>
 				</ul>
+			</section>
+			<section>
+				<h2>References</h2>
+				<ul>
+					<li>
+						CVE website. <a href="https://nvd.nist.gov/vuln/detail/cve-2017-0144" target="_blank">https://nvd.nist.gov/vuln/detail/cve-2017-0144</a>
+					</li>
+					<li>
+						Darknet Diaries episode 53:  <a href="https://darknetdiaries.com/transcript/53/" target="_blank">https://darknetdiaries.com/transcript/53/</a>
+					</li>
+					<li>
+						DefCon26-zerosum0x0-Demystifying MS17 010 Reverse Engineering the ETERNAL Exploits <a href="https://youtu.be/9gF3gclIl-c?feature=
+						shared" target="_blank">https://youtu.be/9gF3gclIl-c?feature=shared</a>
+					</li>
+					<li>
+						
+					</li>
+				</ul>
+				
 			</section>
 
 		</div>
