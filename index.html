@@ -80,6 +80,13 @@
 
 
 				</div>
+				<aside class="notes" data-markdown>
+					<textarea data-template>
+						- Note that Microsoft released the path (MS2017-010) one month BEFORE the release
+							- Rumors are that MS was nudged by NSA about the breach
+						- The DarknetDiaries ep.53 interviews "@MalwareJake" about the breach, at some point in the story the "ShadowBrokers" calls him (BigMouth) and claims he is formerly NSA "Equation Group" it is right out of a spy novel.. with everyone tangled into it 
+					</textarea>
+				</aside>
 			</section>
 
 			<section>
@@ -93,6 +100,14 @@
 					<img data-src="assets/StGobainLogo.svg" width="200" />
 					<img data-src="assets/WPPLogo.svg" width="200" />
 				</div>
+				<aside class="notes" data-markdown>
+					<textarea data-template>
+						- The Meaersk company was especially hard hit, they had to revert to a pen and paper operation and communicate on WhatsApp
+							- They even asked partners and client for it staff to help them get operational again
+							- Maersk have published a cost of $300 million (the their share holders)
+						- NHS (UK Health service had to cancel medical operations, someone may have died!)
+					</textarea>
+				</aside>
 
 			</section>
 
@@ -325,7 +340,7 @@
 			<section>
 				<section>
 					<h2>Demo Time</h2>
-
+					<h1>&darr;</h1>
 				</section>
 				<section>
 					Setup
@@ -357,10 +372,22 @@
 						<img data-src="assets/PasswordsStolen.png" height="100%" />
 						<img data-src="assets/HashDump.png" height="70px" />
 					</div>
+					<aside class="notes" data-markdown>
+						<textarea data-template>
+							- cred_all retrieves credentials IN PLAINTEXT from memory 
+						</textarea>
+					</aside>
+
 				</section>
 				<section>
 					Wireshark Dump
 					<img data-src="assets/SMB_TransError.png" height="100%" />
+					<aside class="notes" data-markdown>
+						<textarea data-template>
+							-  Note the sequence of smb requests corresponding to previous slide (Unchecked Packages & Heap Spraying): [46-64, some other in between and then 172 which breaks it and frees memory] 
+						</textarea>
+					</aside>
+
 				</section>
 			</section>
 			<section>
@@ -399,7 +426,20 @@
 						<a href="https://h3xduck.github.io/vulns/2021/08/22/eternalblue-part8.html" target="_blank">https://h3xduck.github.io/vulns/2021/08/22/eternalblue-part8.html</a>
 					</li>
 				</ul>
-				
+				<div>
+					<h4>This presentation:</h4>
+					<ul style="font-size: large;">
+						<li>
+							Deployed on github pages here:<a href="https://kjwesthoff.github.io/MICS204-Report1-CVS-2017-1044-slides/" target="_blank">https://kjwesthoff.github.io/MICS204-Report1-CVS-2017-1044-slides/</a>
+						</li>
+						<li>
+							Code on github here:<a href="https://github.com/KJWesthoff/MICS204-Report1-CVS-2017-1044-slides.git" target="_blank">https://github.com/KJWesthoff/MICS204-Report1-CVS-2017-1044-slides.git</a>
+						</li>
+						<li>
+							MICS-204 Report here: <a href="https://github.com/KJWesthoff/MICS204-Report1-CVS-2017-1044/blob/main/CVS-2017-0144%20.pdf" target="_blank">https://github.com/KJWesthoff/MICS204-Report1-CVS-2017-1044/blob/main/CVS-2017-0144%20.pdf</a> 
+						</li>
+					</ul>
+				</div>
 			</section>
 
 		</div>
@@ -419,6 +459,9 @@
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
 		});
+		Reveal.configure({ pdfSeparateFragments: false });
+		Reveal.configure({ showNotes: true });
+		Reveal.configure({ showNotes: 'separate-page' });
 	</script>
 </body>
 
